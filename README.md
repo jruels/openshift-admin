@@ -17,6 +17,10 @@ Lab 3: [Managing OpenShift Resources](https://developers.redhat.com/courses/foun
 
 Lab 4: [Deploying an OpenShift Cluster](labs/openshift-deploy)    
 
+Lab 5: [Getting Started with Projects](labs/openshift-projects) 
+
+
+
 
 
 ​    

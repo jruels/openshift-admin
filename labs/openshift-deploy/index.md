@@ -192,10 +192,7 @@ chmod 600 lab.pem
 ssh -i lab.pem <user>@<VM IP> 
 ```
 
-
-## 
-
-## Set up Putty
+### Set up Putty
 
 If you don't already have it, download Putty from [here](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe) and save it to your desktop. 
 
@@ -247,6 +244,10 @@ With this, the SSH keys have been generated, and we can use them during the SNO 
 
 ## Installing the OCP client and getting the installation program
 
+
+
+**NOTE: The client and installer have been downloaded for you in this lab environment. ** 
+
 We are almost ready to go! It's time to install the `oc` client and download the installation program to our AWS instance.
 
 1. Navigate to the [Red Hat Hybrid Cloud Console](https://console.redhat.com/openshift) and log in using your Red Hat credentials.
@@ -292,29 +293,8 @@ We are almost ready to go! It's time to install the `oc` client and download the
 
    
 
-4. To complete the oc installation, move the extracted files to the user path:
+4. 
 
-   ```plaintext
-   sudo mv oc kubectl /usr/local/bin
-   ```
-
-   
-
-5. Before starting the OCP installation, move the installation file to the user path, too:
-
-   ```plaintext
-   sudo mv openshift-install /usr/local/bin
-   ```
-
-   
-
-6. To check the version you will be installing, run:
-
-   ```plaintext
-   openshift-install version
-   ```
-
-   
 
 All good? Now, we can confirm that we are ready to deploy the single node OpenShift.
 
@@ -323,6 +303,22 @@ All good? Now, we can confirm that we are ready to deploy the single node OpenSh
 ## Single node deployment
 
 The moment has arrived. We will have our SNO deployed and ready to work in a matter of minutes.
+
+1. To complete the oc installation, move the extracted files to the user path:
+
+   ```plaintext
+   sudo mv oc kubectl openshift-install /usr/local/bin
+   ```
+
+   
+
+2. To check the version you will be installing, run:
+
+   ```plaintext
+   openshift-install version
+   ```
+
+   
 
 1. On the terminal, you will need to create a config file to specify the cluster details. Run:
 
