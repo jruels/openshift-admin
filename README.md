@@ -19,6 +19,10 @@ Lab 4: [Deploying an OpenShift Cluster](labs/openshift-deploy)
 
 Lab 5: [Getting Started with Projects](labs/openshift-projects) 
 
+Lab 6: [Getting Started with Projects](labs/openshift-projects) 
+
+Lab 7: [Understanding etcd](labs/openshift-etcd) 
+
 
 
 
