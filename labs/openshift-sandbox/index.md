@@ -263,7 +263,7 @@ NAME                                        READY   STATUS    RESTARTS   AGE
 workspace1e8db31dd59c43ef-8585ff4cc-24ww6   2/2     Running   0          22s
 ```
 
-Copy snippet
+
 
 Notice that the output from executing `oc` get pods and `kubectl` get pods is identical. This is because both `oc` and `kubectl` are querying the same underlying Kubernetes cluster to get a list of pods. This is direct evidence of the tight relationship between OpenShift and Kubernetes. 
 
