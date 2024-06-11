@@ -1,10 +1,8 @@
 # Deploy an OpenShift Cluster
 
-In this lab, we will follow a step-by-step walkthrough for installing and configuring a single-node OpenShift environment on Amazon Web Services (AWS). We'll guide you through the essential elements for a successful installation, from spinning up an AWS instance to configuring your Red Hat OpenShift environment. We'll cover every detail to ensure you can efficiently deploy and run containerized applications.
+In this lab, we will follow a step-by-step walkthrough for installing and configuring an OpenShift environment on Amazon Web Services (AWS). We'll guide you through the essential elements for a successful installation, from spinning up an AWS instance to configuring your Red Hat OpenShift environment. We'll cover every detail to ensure you can efficiently deploy and run containerized applications.
 
-### Single Node Openshift use-case
-
-Single node OpenShift is an ideal solution for developers and testing teams seeking agility in development environments. As the name suggests, this configuration allows running a single instance of OpenShift on a lone node, offering control and worker capabilities at the same time. With a smaller footprint, single-node OpenShift provides a consistent and comprehensive environment for creating, testing, and deploying container-based applications without compromising the power of OpenShift. The minimum system requirements for deploying SNO on the cloud are 8 vCPU cores, 16GB of RAM, and 120GB of storage.
+### 
 
 ## Prerequisites
 
@@ -22,7 +20,9 @@ Depending on the cloud provider you choose, the steps described can vary slightl
 
 ### AWS Route53 DNS
 
-OpenShift uses DNS and requires a DNS domain to install. The DNS has already been set up for you for this training, but we have included steps for doing this on your own to provide complete instructions.
+**The DNS has already been set up for you for this training, but we have included steps for doing this on your own to provide complete instructions.**
+
+OpenShift uses DNS and requires a DNS domain to install. 
 
 The need to utilize Route 53 when installing OpenShift on AWS stems from the critical importance of efficiently managing domain names and DNS resolution to ensure accessibility and connectivity for OpenShift components.
 
@@ -54,7 +54,7 @@ And that's all you need to configure your Route 53 service correctly. Now we can
 
 ### Create an IAM user 
 
-As with the DNS, for this lab environment the IAM user and permissions have already been completed. The following steps are for reference only. 
+**As with the DNS, for this lab environment, the IAM user and permissions have already been completed.** The following steps are for reference only. 
 
 When the AWS account was created, it was provisioned with a highly privileged account. However, to add an additional layer of security and facilitate the management and auditing of the accesses and actions performed by OpenShift on the AWS infrastructure, a specific IAM user for OpenShift on AWS is recommended.
 
@@ -111,7 +111,7 @@ With that, we have completed most of the prerequisites for the SNO installation.
 
 ### Creating the installation host 
 
-For this class, the lab environment has already been provisioned. These steps are for reference only.
+**For this class, the lab environment has already been provisioned. These steps are for reference only.**
 
 To ensure that everyone following this lab can complete the process from start to finish, we will create an AWS instance to avoid possible hardware limitations.
 
@@ -218,9 +218,7 @@ After SSH'ing to the lab VM continue with the lab.
 
 ### SSH key pair creation
 
-**The SSH key pair has been created for you in this lab environment.** The following instructions are for your reference.
-
-During the single node installation, we will need to supply an SSH public key to the installation program. This key will be transmitted to the node and serve as a means of authenticating SSH access to it. Subsequently, the key is appended to the `~/.ssh/authorized_keys` list for the core user in the node, enabling password-less authentication. 
+During the installation, we will need to supply an SSH public key to the installation program. This key will be transmitted to the node and serve as a means of authenticating SSH access to it. Subsequently, the key is appended to the `~/.ssh/authorized_keys` list for the `core` user in the node, enabling password-less authentication. 
 
 1. In your terminal, run the following command to create the SSH keys:
 
@@ -238,15 +236,11 @@ During the single node installation, we will need to supply an SSH public key to
 
    
 
-With this, the SSH keys have been generated, and we can use them during the SNO installation.
+With this, the SSH keys have been generated, and we can use them during the installation.
 
 
 
 ## Installing the OCP client and getting the installation program
-
-
-
-**NOTE: The client and installer have been downloaded for you in this lab environment. ** 
 
 We are almost ready to go! It's time to install the `oc` client and download the installation program to our AWS instance.
 
@@ -293,18 +287,16 @@ We are almost ready to go! It's time to install the `oc` client and download the
 
    
 
-4. 
 
-
-All good? Now, we can confirm that we are ready to deploy the single node OpenShift.
+All good? Now, we can confirm that we are ready to deploy the OpenShift cluster.
 
 
 
 ## Single node deployment
 
-The moment has arrived. We will have our SNO deployed and ready to work in a matter of minutes.
+The moment has arrived. We will have our cluster deployed and ready to work in a matter of minutes.
 
-1. To complete the oc installation, move the extracted files to the user path:
+1. To complete the installation for `oc`, `kubectl`, and `openshift-install`, move the extracted files to the user path:
 
    ```plaintext
    sudo mv oc kubectl openshift-install /usr/local/bin
@@ -335,7 +327,7 @@ The moment has arrived. We will have our SNO deployed and ready to work in a mat
    - **AWS Access Key ID**: Paste the one provided by the instructor.
    - **AWS Secret Access Key ID**: Paste the one provided by the instructor.
    - **Region**: Select the region where the host was created (`us-west-1`).
-   - **BaseDomain**: Select your domain (`innovtrain.org`).
+   - **BaseDomain**: Select your domain (`innovteach.com`).
    - **Cluster name**: Name the cluster `student<#>`, replacing `#` with the number assigned to you by the instructor.
    - **Pull Secret**: Copy and paste your pull secret from the [Hybrid Cloud Console](https://console.redhat.com/openshift/downloads#tool-pull-secret).
 
@@ -347,7 +339,7 @@ The moment has arrived. We will have our SNO deployed and ready to work in a mat
 
    
 
-4. To deploy a single node OpenShift, the `controlPlane.replicas` setting in the `install-config.yaml` file should be set to `1` and the `compute.replicas`setting should be `0`. Also, we need to specify the EC2 instance type.
+4. To deploy  OpenShift, in the `install-config.yaml`file the `controlPlane.replicas` and `compute.replicas` settings  should be set to `1`. Also, we need to specify the EC2 instance type.
 
    ```
       compute:
@@ -355,7 +347,7 @@ The moment has arrived. We will have our SNO deployed and ready to work in a mat
                 hyperthreading: Enabled
                 name: worker
                 platform: {}
-                replicas: 0
+                replicas: 1
               controlPlane:
                 architecture: amd64
                 hyperthreading: Enabled
@@ -379,7 +371,7 @@ openshift-install create cluster --dir=./ --log-level=debug
 
 1. When the installation finishes, the installer will provide you the kubeadmin user, password, and OpenShift Web Console URL. Note them down.
 
-2. In order to be able to access your SNO from a terminal, run the following command to expose the `kubeconfig` file:
+2. In order to access your cluster using terminal utilities, run the following command to export the `kubeconfig` file:
 
    ```plaintext
    export KUBECONFIG=/home/ec2-user/auth/kubeconfig
@@ -389,20 +381,20 @@ To make this permanent, add it to `~/.bashrc`
 
 
 
-Once all the steps are completed, to access the web console, paste the URL provided at the end of the installation process into your browser. Log in using the username `kubeadmin` and the password generated during installation. If you can't remember the password, you can find it in `auth/kubeadmin`. With this, we have successfully logged into the single-node OpenShift Web Console.
+Once all the steps are completed, to access the web console, paste the URL provided at the end of the installation process into your browser. Log in using the username `kubeadmin` and the password generated during installation. If you can't remember the password, you can find it in `auth/kubeadmin`. With this, we have successfully logged into the OpenShift Web Console.
 
 ### Connect your cluster to the command line
 
-Apart from managing our SNO from the web console, we can also use the command-line interface to manage our OpenShift node. Follow the next steps to connect to your cluster through the command line.
+Apart from managing our cluster from the web console, we can also use the command-line interface to manage our OpenShift node. Follow the next steps to connect to your cluster through the command line.
 
-1. Once on the Web Console, connect to the SNO by clicking on the current user **kube:admin** in the upper right corner. Select **Copy login command**.
+1. Once on the Web Console, connect to the by clicking on the current user **kube:admin** in the upper right corner. Select **Copy login command**.
 
 [![Web console user commands.](https://developers.redhat.com/sites/default/files/styles/article_floated/public/image4_17.png?itok=eHfhdl1M)](https://developers.redhat.com/sites/default/files/image4_17.png)
 
 
 
-1. This will open a new tab in our web browser. If we click **Display token**, we can copy the `oc` login command shown and paste it into our terminal. By doing this, we should be able to interact with our SNO using the command line interface.
+1. This will open a new tab in our web browser. If we click **Display token**, we can copy the `oc` login command shown and paste it into our terminal. By doing this, we should be able to interact with our cluster using the command line interface.
 
 ## Congratulations
 
-Congratulations! You now have a working OpenShift cluster. During the rest of class, we will work with projects and resources, extend our cluster to support Persistent Volumes, LDAP authentication, and much more! 
+Congratulations! You now have a working OpenShift cluster. During the rest of class, we will work with projects and resources to extend our cluster to support Persistent Volumes, LDAP authentication, and much more! 
