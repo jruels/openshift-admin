@@ -198,13 +198,13 @@ If you don't already have it, download Putty from [here](https://the.earth.li/~s
 
 Open Putty and configure a new session.
 
-![img](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/Advanced Ansible/classpage/labs/access_lab/images/putty-session.png)
+![img](images/putty-session.png)
 
 
 
 Expand Connection -> SSH -> Auth -> Credentials, click "Browse", and then choose the `lab.ppk` file from the extracted lab directory
 
-![image-20230918185300995](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/Advanced Ansible/classpage/labs/access_lab/images/putty-auth.png)
+![image-20230918185300995](images/putty-auth.png)
 
 
 
