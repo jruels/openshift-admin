@@ -2,7 +2,7 @@
 
 In this lab, we will follow a step-by-step walkthrough for installing and configuring an OpenShift environment on Amazon Web Services (AWS). We'll guide you through the essential elements for a successful installation, from spinning up an AWS instance to configuring your Red Hat OpenShift environment. We'll cover every detail to ensure you can efficiently deploy and run containerized applications.
 
-### 
+
 
 ## Prerequisites
 
