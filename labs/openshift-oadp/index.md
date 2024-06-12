@@ -9,13 +9,13 @@ OpenShift API for Data Protection (OADP) 4.15 offers a robust solution for data 
 To add the Bitnami Helm repository in OpenShift, switch to the **Developer** view in the OpenShift Web Console and click on **Helm**.
 
 - **Access Helm**: Click on **Helm**.
-  ![image-20240609142752947](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609142752947.png)
+  ![image-20240609142752947](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609142752947.png)
 
 - **Add Repository**: Click **Create** -> **Repository**, and fill in the form as shown.
-  ![image-20240609142937917](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609142937917.png)
+  ![image-20240609142937917](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609142937917.png)
 
 - **Confirm Repository Addition**: To confirm the repository was added correctly, click **Repositories** at the top of the page. You should see the new "bitnami" repository listed.
-  ![image-20240609143043107](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143043107.png)
+  ![image-20240609143043107](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143043107.png)
 
 ## Deploying the WordPress Chart
 
@@ -24,19 +24,19 @@ To deploy the WordPress chart using Helm:
 * Create a new project named **dev**, and change to it.
 
 - Click **+Add**.
-  ![image-20240609143151686](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143151686.png)
+  ![image-20240609143151686](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143151686.png)
 
 - Search for "wordpress" and select the one that does NOT say "DEPRECATED".
-  ![image-20240609143318291](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143318291.png)
+  ![image-20240609143318291](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143318291.png)
 
 - Click **Create**, and fill out the form as shown. Be sure to use your name for the "Blog Name" field.
-  ![image-20240609143438759](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143438759.png)
+  ![image-20240609143438759](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143438759.png)
 
 - Click **Create**. You will see the resources being deployed.
 
 - To verify WordPress was deployed successfully, click the square with an arrow icon to load the website. 
 
-  ![image-20240609143601623](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143601623.png)
+  ![image-20240609143601623](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143601623.png)
 
 - Log into the WordPress site using credentials:
 
@@ -53,9 +53,9 @@ To set up OADP:
 - Change to **Administrator** view.
 - Click **Operators** -> **OperatorHub**.
 - Search for "OADP" and select the Red Hat OADP Operator.
-  ![image-20240609143705331](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143705331.png)
+  ![image-20240609143705331](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143705331.png)
 - Click **Install**.
-  ![image-20240609143739513](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609143739513.png)
+  ![image-20240609143739513](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609143739513.png)
 
 ## Creating Cloud Credentials Secret
 
@@ -65,27 +65,28 @@ To create a secret containing your cloud credentials:
    ```yaml
    apiVersion: v1
    data:
-     cloud: W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkPUFLSUFWSEw3U0JDTUNBQUhDVVBBCmF3c19zZWNyZXRfYWNjZXNzX2tleT1qU1pWbXJrMkhzWmNpRGpsSlVWdmhJSUFJaUwxTkhVYjc3U21VbC9LCg==
+     cloud: W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkPUFLSUFRSkZTV1dSQ1BNTVpTU01WCmF3c19zZWNy
+   ZXRfYWNjZXNzX2tleT0yVnhnTExoS2RVa1l3dDgySHVuR0dKMFd5NjUyQTdPMzdscGMrZEdyCg==
    kind: Secret
    metadata:
      name: cloud-credentials
      namespace: openshift-adp
    ```
-
+   
 - In the Web Console, expand **Workloads**, and click **Secrets**. Confirm you're in the "openshift-adp" project, and click **Create** -> **From YAML**. Paste in the code from above and click **Create**.
-  ![image-20240609144013510](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609144013510.png)
+  ![image-20240609144013510](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609144013510.png)
 
 ## Creating DataProtectionApplication Custom Resource
 
 To create the DataProtectionApplication Custom Resource:
 
 - Create an instance of the DataProtectionApplication (DPA) CR by clicking on **Create Instance** as highlighted below.
-  ![image-20240609144203325](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609144203325.png)
+  ![image-20240609144203325](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609144203325.png)
 
-  ![image-20240609144228277](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609144228277.png)
+  ![image-20240609144228277](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609144228277.png)
   
 - **Use the following YAML File, replacing YOUR_INITIALS and YYYYMMDD**:
-   
+  
    ```yaml
    apiVersion: oadp.openshift.io/v1alpha1
    kind: DataProtectionApplication
@@ -189,7 +190,7 @@ Now that we've installed WordPress, OADP, and configured OADP, we are ready to t
 
 * Go back to the OADP operator and click **Backup** -> **Create Backup**.
 
-![image-20240609145946467](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609145946467.png)
+![image-20240609145946467](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609145946467.png)
 
 * Fill in the form: 
   * **Name**: backup
@@ -224,7 +225,7 @@ Use the OADP restore option to restore the deleted "dev" namespace.
 
 Monitor the status of the restore and confirm **Phase** changes to **Completed** as shown below.
 
-![image-20240609153909606](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/images/image-20240609153909606.png)
+![image-20240609153909606](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-oadp/images/image-20240609153909606.png)
 
 
 
@@ -232,7 +233,17 @@ Monitor the status of the restore and confirm **Phase** changes to **Completed**
   * `oc get all -n dev -l app.kubernetes.io/instance=wordpress`
 * Confirm the wordpress site loads and shows the new page you created. 
 
+## Schedule backups
 
+We never know when a disaster will occur, so it is best practice to schedule backups to occur frequently. For this lab, we will schedule a backup to occur every five minutes. 
+
+* Navigate to the OpenShift web console.
+* Go to the **Operators** section and select **Installed Operators**.
+* Choose the **OADP Operator** and go to the **Schedule** tab.
+* Create a new schedule to backup up the `dev` namespace, including persistent volumes every five minutes. 
+  * TIP: Use this website to help with crontab syntax. https://crontab-generator.org
+* Monitor the incremental backup process in the **Backup** section.
+* Confirm the backup runs successfully.
 
 ## Congratulations 
 
