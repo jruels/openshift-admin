@@ -65,8 +65,7 @@ To create a secret containing your cloud credentials:
    ```yaml
    apiVersion: v1
    data:
-     cloud: W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkPUFLSUFRSkZTV1dSQ1BNTVpTU01WCmF3c19zZWNy
-   ZXRfYWNjZXNzX2tleT0yVnhnTExoS2RVa1l3dDgySHVuR0dKMFd5NjUyQTdPMzdscGMrZEdyCg==
+     cloud: W2RlZmF1bHRdCmF3c19hY2Nlc3Nfa2V5X2lkPUFLSUFRSkZTV1dSQ1BNTVpTU01WCmF3c19zZWNyZXRfYWNjZXNzX2tleT0yVnhnTExoS2RVa1l3dDgySHVuR0dKMFd5NjUyQTdPMzdscGMrZEdyCg==
    kind: Secret
    metadata:
      name: cloud-credentials
