@@ -187,7 +187,7 @@ spec:
 Submit to batch job
 
 ```bash
-oc apply -f batch.yaml 
+oc create -f batch.yaml 
 ```
 
 
@@ -195,7 +195,7 @@ oc apply -f batch.yaml
 Confirm the batch job is creating MANY pods
 
 ```bash
-oc get batch 
+oc get job 
 ```
 
 
