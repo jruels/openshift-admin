@@ -114,6 +114,14 @@ sudo ldapadd -x -w password -D "cn=admin,dc=innovteach,dc=com" -f openshift.ldif
 
 
 
+#### Confirm the data is correct
+
+```bash
+ldapsearch -x -LLL -D "cn=admin,dc=innovteach,dc=com" -W -b "dc=innovteach,dc=com"
+```
+
+
+
 #### Confirm users are in the correct OU
 
 Run the following `ldapsearch` command to confirm the users are in the `openshift` OU
