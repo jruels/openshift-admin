@@ -97,7 +97,7 @@ oc -n openshift-machine-api get clusterautoscaler default -o yaml
 
 
 
-#### **Create a MachineAutoscaler **
+#### Create a MachineAutoscaler 
 
 The ClusterAutosclaler requires a MachineAutoscaler. Set up a MachineAutoscaler to automatically manage the scaling of worker nodes based on the load. The Machine Autoscaler works alongside the Cluster Autoscaler to ensure that the right number of nodes is available to meet the resource needs of the cluster efficiently.
 
