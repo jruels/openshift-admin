@@ -35,5 +35,7 @@ Lab 8: [Autoscaling](labs/openshift-scaling)
 
 Lab 9: [Basic authentication](labs/openshift-authentication)   
 
+Lab 10: [LDAP authentication](labs/openshift-ldap)   
+
 
 
