@@ -7,7 +7,7 @@ In this lab, you will learn how to configure the OpenShift authentication operat
 Steps:
 
 1. Install the `httpd-tools` package:
-   - Connect to your OpenShift cluster using SSH.
+   - Connect to your jump host using SSH.
    - Run the following command to install the `httpd-tools` package using `dnf`:
      ```bash
      sudo dnf install httpd-tools -y

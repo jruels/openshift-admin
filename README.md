@@ -29,3 +29,11 @@ Lab 7: [Backing up and Restoring applications](labs/openshift-oadp)
 
 Lab 8: [Autoscaling](labs/openshift-scaling)   
 
+
+
+### Day 4  
+
+Lab 9: [Basic authentication](labs/openshift-authentication)   
+
+
+

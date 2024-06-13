@@ -109,7 +109,7 @@ The ClusterAutosclaler requires a MachineAutoscaler. Set up a MachineAutoscaler 
 
 * Click **Create Machine Autoscaler**.
 
-  * Fill in with the following YAML:
+  * Fill in with the following YAML (replacing with your MachineSet name):
 
     ```yaml
     apiVersion: "autoscaling.openshift.io/v1beta1"
