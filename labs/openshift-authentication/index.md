@@ -31,8 +31,13 @@ Steps:
      ```bash
      oc edit oauth cluster
      ```
+     
    - Locate the `spec` section in the YAML file.
-   - Remove the `{}` and update it to match the following:
+   
+   - Remove the `{}` and update it to match the following:   
+     
+     
+     
      ```yaml
      spec:
        identityProviders:
@@ -42,6 +47,7 @@ Steps:
          name: htpassidp
          type: HTPasswd
      ```
+     
    - Save the changes and exit the editor.
    
 5. Confirm the authentication operator restarts:
