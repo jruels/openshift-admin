@@ -26,3 +26,6 @@ Lab 6: [Understanding etcd](labs/openshift-etcd)
 ### Day 3
 
 Lab 7: [Backing up and Restoring applications](labs/openshift-oadp)   
+
+Lab 8: [Autoscaling](labs/openshift-scaling)   
+
