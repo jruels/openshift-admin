@@ -114,6 +114,16 @@ sudo ldapadd -x -w password -D "cn=admin,dc=innovteach,dc=com" -f openshift.ldif
 
 
 
+#### Confirm users are in the correct OU
+
+Run the following `ldapsearch` command to confirm the users are in the `openshift` OU
+
+```bash
+ldapsearch -x -LLL -D "cn=admin,dc=innovteach,dc=com" -w password -b "ou=openshift,dc=innovteach,dc=com" -s sub "(&(objectClass=person)(objectClass=organizationalPerson))" dn cn
+```
+
+
+
 
 
 #### Create the bind secret
