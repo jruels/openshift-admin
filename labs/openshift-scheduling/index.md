@@ -1,7 +1,7 @@
-# Advanced Scheduling
+# OpenShift Scheduling
 ## Node Affinity/Anti-Affinity 
 
-Get list of nodes
+Get the list of nodes
 ```bash
 oc get nodes 
 ```
@@ -13,7 +13,7 @@ ip-10-0-8-243.us-west-1.compute.internal    Ready    control-plane,master   2d23
 ```
 
 
-Set a label on a node that doesn't have `control-plane` role
+Set a label on a node that doesn't have a `control-plane` role
 ```bash
 oc label nodes <ip-192-168-92-129.us-east-2.compute.internal> disktype=ssd
 ```
