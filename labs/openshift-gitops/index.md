@@ -5,7 +5,7 @@
   - Accept defaults
   - Click **Install**
 
-<img src="/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-gitops/images/image-20240613221345651.png" alt="image-20240613221345651" style="zoom: 50%;" />
+<img src="images/image-20240613221345651.png" alt="image-20240613221345651" style="zoom: 50%;" />
 
 - Wait for a few minutes. Check Argo CD's pods in the `openshift-gitops` namespace
 
@@ -36,7 +36,7 @@
 
   - In the top right of the web console, click the icon shown in the screenshot and click "Cluster Argo CD".
 
-    <img src="/Users/jruels/Library/Application Support/typora-user-images/image-20240613222141747.png" alt="image-20240613222141747" style="zoom:50%;" />
+    <img src="images/image-20240613222141747.png" alt="image-20240613222141747" style="zoom:50%;" />
 
   There are multiple ways to log into the Argo CD console. You can login using your OpenShift credentials or use the following process to login with the generated credentials. 
 
@@ -44,7 +44,7 @@
 
   If you use the OpenShift method, login as the `kubeadmin` user and grant access to the service account. 
 
-  ![image-20240613222832785](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-gitops/images/image-20240613222832785.png)If you choose NOT to log in with OpenShift credentials run the following. 
+  ![image-20240613222832785](images/image-20240613222832785.png)If you choose NOT to log in with OpenShift credentials run the following. 
 
   Get the `admin` user's password from the cluster secret:
 
@@ -107,7 +107,7 @@
 
   * Confirm in the Argo CD console the application was synced successfully.
 
-    ![image-20240613234451943](/Users/jruels/Library/CloudStorage/Dropbox-IIS/Training/OpenShift Administration and Scaling/classpage/labs/openshift-gitops/images/image-20240613234451943.png)
+    ![image-20240613234451943](images/image-20240613234451943.png)
 
 Explore the Argo console. There are many helpful options, like viewing the logs of deployed applications. 
 
