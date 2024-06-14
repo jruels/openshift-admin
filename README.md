@@ -39,3 +39,10 @@ Lab 10: [LDAP authentication](labs/openshift-ldap)
 
 
 
+### Day 5 
+
+Lab 11: [OpenShift GitOps](labs/openshift-GitOps)   
+
+Lab 12: [OpenShift Scheduling](labs/openshift-scheduling) 
+
+  
