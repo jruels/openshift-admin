@@ -64,6 +64,25 @@ sudo ldapmodify -Y External -H ldapi:/// -f base.ldif
 
 
 
+Create the domain with `domain.ldif`
+
+```ldif
+dn: dc=innovteach,dc=com
+objectClass: dcObject
+objectClass: organization
+objectClass: top
+dc: innovteach
+o: InnovTeach
+```
+
+
+
+```bash
+sudo ldapadd -x -w password -D "cn=admin,dc=innovteach,dc=com" -f domain.ldif
+```
+
+
+
 Create the LDAP directory file `openshift.ldif`
 
 **NOTE: Replace the `userPassword` with the generated password from `slappasswd` earlier.**
@@ -93,7 +112,7 @@ objectClass: person
 objectClass: organizationalPerson
 cn: ocpuser1
 sn: openshift
-userPassword: {SSHA}jrgpvY2aVjPX+3vcqR/ol36fHCwwdvT5
+userPassword: {SSHA}UCnTHeaY1VQROjKHly/tmCzur1ouUBIz
 
 dn: cn=ocpadminuser1,ou=openshift,dc=innovteach,dc=com
 objectClass: top
@@ -101,7 +120,7 @@ objectClass: person
 objectClass: organizationalPerson
 cn: ocpadminuser1
 sn: openshift
-userPassword: {SSHA}jrgpvY2aVjPX+3vcqR/ol36fHCwwdvT5
+userPassword: {SSHA}UCnTHeaY1VQROjKHly/tmCzur1ouUBIz
 ```
 
 
@@ -189,11 +208,11 @@ Click **Add**
 
 
 
-Now go back to the oAuth configuration page and on the top right click **Actions** -> **Edit OAuth**
+#### Confirm LDAP authentication is working
 
+In the oAuth configuration page at the top right, click **Actions** -> **Edit OAuth**
 
-
-In the YAML file find the `ldap` identify provider section and change `insecure: false` to `insecure: true`
+In the YAML file, find the `ldap` identify provider section and change `insecure: false` to `insecure: true`
 
 
 
@@ -203,4 +222,4 @@ At this point, you should be able to log into the web console as one of the LDAP
 
 #### Congratulations
 
-Now you can manage your users with LDAP!
+Now, you can manage your users with LDAP!
